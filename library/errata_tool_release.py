@@ -135,6 +135,11 @@ options:
      choices: [true, false]
      default: false
      required: false
+   skip_customer_notification:
+     description:
+       - If True , there won't be customer notifications. This flag is set for main version GA e.g. RHEL-9 GA
+     choices: [true, false]
+     default: false
    limit_bugs_by_product:
      description:
        - Only relevant for QuarterlyUpdate releases.
@@ -426,6 +431,7 @@ def run_module():
         allow_exception=dict(type='bool', default=False),
         allow_pkg_dupes=dict(type='bool', default=False),
         supports_component_acl=dict(type='bool', default=False),
+        skip_customer_notification=dict(type='bool', default=False),
         limit_bugs_by_product=dict(type='bool', default=False),
         state_machine_rule_set=dict(),
         pelc_product_version_name=dict(),
