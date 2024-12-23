@@ -121,6 +121,7 @@ Errata Tool.
         state_machine_rule_set: null
         pelc_product_version: null
         brew_tags: []
+        is_silent: false
 
 
 errata_tool_variant

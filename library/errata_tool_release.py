@@ -173,6 +173,12 @@ options:
        - Set to an empty list "[]" to simply inherit the brew_tags
          configuration from this release's ... Product Versions?.
      required: true
+   is_silent:
+     description:
+       - Skip customer notifications for any advisories shipped in the release
+       - Normally set to true for RHEL minor version == 0 releases, e.g. 9.0, 10.0, 11.0
+     type: bool
+     required: false
 requirements:
   - "python >= 2.7"
   - "lxml"
@@ -355,8 +361,6 @@ def prepare_diff_data(before, after):
             'zstream_target_release',
             # https://github.com/ktdreyer/errata-tool-ansible/issues/114
             'notify_bugzilla_about_release_status',
-            # https://github.com/ktdreyer/errata-tool-ansible/issues/265
-            'is_silent',
         ],
         keys_to_omit=[
             # I think these two are old dead schema that
@@ -430,6 +434,7 @@ def run_module():
         state_machine_rule_set=dict(),
         pelc_product_version_name=dict(),
         brew_tags=dict(type='list', default=[]),
+        is_silent=dict(type='bool'),
     )
     module = AnsibleModule(
         argument_spec=module_args,
