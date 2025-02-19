@@ -13,6 +13,7 @@
         "is_active": true,
         "enabled": true,
         "enable_batching": false,
+        "is_silent": false,
         "is_async": false,
         "is_deferred": false,
         "allow_shadow": false,

@@ -50,6 +50,7 @@ def params():
         'state_machine_rule_set': None,
         'pelc_product_version_name': None,
         'brew_tags': [],
+        'is_silent': False,
     }
 
 
@@ -95,6 +96,7 @@ class TestGetRelease(object):
             'state_machine_rule_set': None,
             'brew_tags': [],
             'product_versions': ['RHCEPH-4.0-RHEL-8', 'RHEL-7-RHCEPH-4.0'],
+            'is_silent': False,
         }
         assert result == expected
 
@@ -205,6 +207,7 @@ class TestCreateRelease(object):
                 'blocker_flags': 'ceph-4',
                 'enabled': True,
                 'allow_exception': False,
+                'is_silent': False,
             },
             'type': 'QuarterlyUpdate',
         }
@@ -264,6 +267,7 @@ class TestCreateRelease(object):
                 'blocker_flags': 'ceph-4',
                 'enabled': True,
                 'allow_exception': False,
+                'is_silent': False,
             },
             'type': 'Async',
         }
@@ -411,6 +415,7 @@ class TestEnsureRelease(object):
                 'blocker_flags': 'ceph-4',
                 'enabled': True,
                 'allow_exception': False,
+                'is_silent': False,
             },
             'type': 'QuarterlyUpdate',
         }
@@ -509,6 +514,7 @@ class TestMain(object):
             'enabled': False,
             'active': False,
             'enable_batching': False,
+            'is_silent': False,
         }
 
     def test_simple_async(self, monkeypatch):
