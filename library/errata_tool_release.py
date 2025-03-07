@@ -159,15 +159,6 @@ options:
                Non-blocking Push target & Covscan]
      default: null
      required: false
-   pelc_product_version_name:
-     description:
-       - If your release does not use PELC, you can omit this parameter and
-         the ET server will default this value to "null".
-       - If the ET server already has a PELC version defined for this release
-         and you wish to *unset* it, set this pelc_product_version_name
-         parameter to an empty string "".
-     default: null
-     required: false
    brew_tags:
      description:
        - Set to an empty list "[]" to simply inherit the brew_tags
@@ -356,7 +347,6 @@ def prepare_diff_data(before, after):
         item_type='release',
         keys_to_copy=[
             # Avoid a diff if these are null to begin with
-            'pelc_product_version_name',
             'state_machine_rule_set',
             'zstream_target_release',
             # https://github.com/ktdreyer/errata-tool-ansible/issues/114
@@ -432,7 +422,6 @@ def run_module():
         supports_component_acl=dict(type='bool', default=False),
         limit_bugs_by_product=dict(type='bool', default=False),
         state_machine_rule_set=dict(),
-        pelc_product_version_name=dict(),
         brew_tags=dict(type='list', default=[]),
         is_silent=dict(type='bool'),
     )

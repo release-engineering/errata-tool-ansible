@@ -119,7 +119,6 @@ Errata Tool.
         supports_component_acl: true
         limit_bugs_by_product: false
         state_machine_rule_set: null
-        pelc_product_version: null
         brew_tags: []
         is_silent: false
 

@@ -9,7 +9,6 @@
         "type": "Zstream",
         "allow_pkg_dupes": false,
         "ship_date": "2020-01-01T00:00:00Z",
-        "pelc_product_version_name": null,
         "is_active": true,
         "enabled": true,
         "enable_batching": true,
