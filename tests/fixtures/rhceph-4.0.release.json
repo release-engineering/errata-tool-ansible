@@ -9,7 +9,6 @@
         "type": "QuarterlyUpdate",
         "allow_pkg_dupes": true,
         "ship_date": "2020-01-31T00:00:00Z",
-        "pelc_product_version_name": "",
         "is_active": true,
         "enabled": true,
         "enable_batching": false,
