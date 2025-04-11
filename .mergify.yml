@@ -1,22 +1,22 @@
 queue_rules:
   - name: default
-    conditions:
-      - status-success=tox (3.6, ubuntu-20.04)
-      - status-success=tox (3.9, ubuntu-latest)
-      - status-success=integration (rhel-8)
-
-pull_request_rules:
-  - name: automatic merge for master when CI passes
-    conditions:
+    queue_conditions:
       - or:
-        - author=ktdreyer
-        - author=hluk
-        - author=CryptoRodeo
+          - author=ktdreyer
+          - author=hluk
+          - author=CryptoRodeo
       - status-success=tox (3.6, ubuntu-20.04)
       - status-success=tox (3.9, ubuntu-latest)
       - status-success=integration (rhel-8)
       - base=master
+    merge_conditions:
+      - status-success=tox (3.6, ubuntu-20.04)
+      - status-success=tox (3.9, ubuntu-latest)
+      - status-success=integration (rhel-8)
+    merge_method: rebase
+
+pull_request_rules:
+  - name: automatic merge for master when CI passes
+    conditions: []
     actions:
       queue:
-        name: default
-        method: rebase
